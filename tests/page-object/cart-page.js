@@ -21,7 +21,7 @@ export class CartPage {
         await expect(this.cartPageTitle).toBeVisible()
         
         //visual comparison
-        //await expect(this.page).toHaveScreenshot('cart-page.png', { maxDiffPixels : 1000})
+        await expect(this.page).toHaveScreenshot('cart-page.png', { maxDiffPixels : 1000})
     }
 
     async validateItemCart() {

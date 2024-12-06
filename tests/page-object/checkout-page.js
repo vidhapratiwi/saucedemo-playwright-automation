@@ -33,7 +33,7 @@ export class CheckoutPage {
     async validateCheckoutPage(){
         await expect(this.checkoutPageTitle).toBeVisible()
         //visual comparison
-        //await expect(this.page).toHaveScreenshot('checkout-page.png', { maxDiffPixels : 1000})
+        await expect(this.page).toHaveScreenshot('checkout-page.png', { maxDiffPixels : 1000})
     }
 
     async inputFirstName(firstname){

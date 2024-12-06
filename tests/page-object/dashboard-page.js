@@ -29,7 +29,7 @@ export class DashboardPage {
         await expect(this.menuButton).toBeVisible()
 
         //visual comparison
-        //await expect(this.page).toHaveScreenshot('dashboard-page.png', { maxDiffPixels : 1000})
+        await expect(this.page).toHaveScreenshot('dashboard-page.png', { maxDiffPixels : 1000})
  
     }
 

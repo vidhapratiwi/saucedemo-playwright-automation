@@ -145,6 +145,13 @@ test('TC 20 - Make a successful purchase', async ({ loginPage, dashboardPage, ca
     await checkoutPage.checkout(process.env.FIRST_NAME, process.env.LAST_NAME, process.env.POSTAL_CODE)
     await checkoutPage.overview()
     await checkoutPage.completeMessage()
+
+    //this visual comparison tc should be successful
+    //the actual screenshot should be showing
+    //Checkout : Overview
+    //but they be showing
+    //Checkout : Your Information
+    //repair it later
 });
 
 test('TC 21 - Make a failed purchase with no product', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
