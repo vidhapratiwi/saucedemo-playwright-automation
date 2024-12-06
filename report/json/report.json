@@ -1,0 +1,925 @@
+{
+  "config": {
+    "configFile": "D:\\bootcamp\\saucedemo-playwright-automation\\playwright.config.js",
+    "rootDir": "D:/bootcamp/saucedemo-playwright-automation/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "report/json/report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "report/html",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "D:/bootcamp/saucedemo-playwright-automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "edge",
+        "name": "edge",
+        "testDir": "D:/bootcamp/saucedemo-playwright-automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "saucedemo-pom.spec.js",
+      "file": "saucedemo-pom.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC 01 - Successful login with valid credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 6183,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "setup test env\n"
+                    },
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:06:48.765Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-608c2638140318339358",
+          "file": "saucedemo-pom.spec.js",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "TC 02 - Failed login with valid credentials (locked out user)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4760,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:06:55.816Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-50fcde339c890bb942fb",
+          "file": "saucedemo-pom.spec.js",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "TC 03 - Succesful login with valid credentials (problem user)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5528,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:00.648Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-11951b12e46ec64c384f",
+          "file": "saucedemo-pom.spec.js",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "TC 04 - Succesful login with valid credentials (performance glitch)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 9862,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:06.204Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-151b7eb0e51c6853702f",
+          "file": "saucedemo-pom.spec.js",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "TC 05 - Succesful login with valid credentials (error user)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4515,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:16.090Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-e18d2084cf092889273e",
+          "file": "saucedemo-pom.spec.js",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "TC 06 - Succesful login with valid credentials (visual_user)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4793,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:20.638Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-5a5dba001c7784a11eae",
+          "file": "saucedemo-pom.spec.js",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "TC 07 - Failed login with invalid credentials (coba user & coba password)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 8149,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:25.452Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-a00b357f548956ee038d",
+          "file": "saucedemo-pom.spec.js",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "TC 08 - Failed login with empty username",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 17328,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:33.635Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-714952ca1bd2a5dc16d6",
+          "file": "saucedemo-pom.spec.js",
+          "line": 43,
+          "column": 1
+        },
+        {
+          "title": "TC 09 - Failed login with empty password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 6302,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:51.256Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-72945d7c2a59ec10e665",
+          "file": "saucedemo-pom.spec.js",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "TC 10 - Failed login with empty credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4652,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:07:57.599Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-fa2fb070c59fb2acce34",
+          "file": "saucedemo-pom.spec.js",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "TC 11 - Sorting product (A-Z)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5005,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:02.364Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-01b41c4ad508a89da341",
+          "file": "saucedemo-pom.spec.js",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "TC 12 - Sorting product (Z-A)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4560,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:07.400Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-815b34273695a61d66b9",
+          "file": "saucedemo-pom.spec.js",
+          "line": 66,
+          "column": 1
+        },
+        {
+          "title": "TC 13 - Sorting product (Low - High)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4942,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:12.002Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-531437dc6361462bc5cb",
+          "file": "saucedemo-pom.spec.js",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "TC 14 - Sorting product (High - Low)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4804,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:16.983Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-e3fac8f6805ae9c4b609",
+          "file": "saucedemo-pom.spec.js",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "TC 15 - Show product details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4820,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:21.811Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-39d0ee7733547aba9d1b",
+          "file": "saucedemo-pom.spec.js",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "TC 16 - Add product to cart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5733,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:26.672Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-ec8286e4ac23b35c10f0",
+          "file": "saucedemo-pom.spec.js",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "TC 17 - Show shopping cart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 4946,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:32.441Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-854d664ac87c17914929",
+          "file": "saucedemo-pom.spec.js",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "TC 18 - Remove product on cart from home page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5451,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:37.421Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-550631accdc913ac848b",
+          "file": "saucedemo-pom.spec.js",
+          "line": 112,
+          "column": 1
+        },
+        {
+          "title": "TC 19 - Remove product on cart from cart page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5969,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:42.917Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-8883766f08362829fded",
+          "file": "saucedemo-pom.spec.js",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "TC 20 - Make a successful purchase",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 6618,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:48.914Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-22318f78e68e210ef504",
+          "file": "saucedemo-pom.spec.js",
+          "line": 133,
+          "column": 1
+        },
+        {
+          "title": "TC 21 - Make a failed purchase with no product",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "failed",
+                  "duration": 10333,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-test=\"error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"error\"]')\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-test=\"error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"error\"]')\u001b[22m\n\n    at CartPage.showErrorMessage (D:\\bootcamp\\saucedemo-playwright-automation\\tests\\page-object\\cart-page.js:44:41)\n    at D:\\bootcamp\\saucedemo-playwright-automation\\tests\\saucedemo-pom.spec.js:157:20",
+                    "matcherResult": {
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-test=\"error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"error\"]')\u001b[22m\n",
+                      "pass": false,
+                      "actual": "hidden",
+                      "name": "toBeVisible",
+                      "expected": "visible",
+                      "log": [
+                        "  - expect.toBeVisible with timeout 5000ms",
+                        "  - waiting for locator('[data-test=\"error\"]')"
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "D:\\bootcamp\\saucedemo-playwright-automation\\tests\\page-object\\cart-page.js",
+                      "column": 41,
+                      "line": 44
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mpage-object\\cart-page.js:44\n\n\u001b[0m \u001b[90m 42 |\u001b[39m\n \u001b[90m 43 |\u001b[39m     \u001b[36masync\u001b[39m showErrorMessage() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39merrorMessage)\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m     }\n \u001b[90m 46 |\u001b[39m\n \u001b[90m 47 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\bootcamp\\saucedemo-playwright-automation\\tests\\page-object\\cart-page.js",
+                        "column": 41,
+                        "line": 44
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-test=\"error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-test=\"error\"]')\u001b[22m\n\n\n\u001b[90m   at \u001b[39mpage-object\\cart-page.js:44\n\n\u001b[0m \u001b[90m 42 |\u001b[39m\n \u001b[90m 43 |\u001b[39m     \u001b[36masync\u001b[39m showErrorMessage() {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39merrorMessage)\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m     }\n \u001b[90m 46 |\u001b[39m\n \u001b[90m 47 |\u001b[39m\u001b[0m\n\u001b[2m    at CartPage.showErrorMessage (D:\\bootcamp\\saucedemo-playwright-automation\\tests\\page-object\\cart-page.js:44:41)\u001b[22m\n\u001b[2m    at D:\\bootcamp\\saucedemo-playwright-automation\\tests\\saucedemo-pom.spec.js:157:20\u001b[22m"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "clean up item on cart\n"
+                    },
+                    {
+                      "text": "Test failed, perform screenshot\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:08:55.579Z",
+                  "attachments": [
+                    {
+                      "name": "failed test",
+                      "contentType": "image/png",
+                      "body": "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"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\bootcamp\\saucedemo-playwright-automation\\tests\\page-object\\cart-page.js",
+                    "column": 41,
+                    "line": 44
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-2153332b69848529824e",
+          "file": "saucedemo-pom.spec.js",
+          "line": 150,
+          "column": 1
+        },
+        {
+          "title": "TC 22 - Make a failed purchase without filling information form",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "edge",
+              "projectName": "edge",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 6958,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "setup test env\n"
+                    },
+                    {
+                      "text": "clean up item on cart\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-12-06T16:09:09.936Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e61e4ff397ff76ea4e21-64f5a7b96c26b84a930d",
+          "file": "saucedemo-pom.spec.js",
+          "line": 165,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-12-06T16:06:46.454Z",
+    "duration": 152639.04700000002,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
