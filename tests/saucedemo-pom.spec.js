@@ -1,3 +1,4 @@
+const { expect } = require("@playwright/test");
 const { test } = require("./base/base-test");
 
 
@@ -55,7 +56,63 @@ test('TC 10 - Failed login with empty credentials', async ({ loginPage }) => {
     await loginPage.showErrorMessage()
 });
 
-test('TC 11 - Sorting product (A-Z)', async ({ loginPage, dashboardPage }) => {
+test('TC 11 - Successful Logout', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.logout()
+});
+
+test('TC 13 - Display all side bar menu', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.clickSideBarMenu()
+    await dashboardPage.sideBarIsDisplayed()
+});
+
+test('TC 14 - Side bar menu - All items option', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.clickSideBarMenu()
+    await dashboardPage.selectAllItemOption()
+    await dashboardPage.validateProductDetails()
+});
+
+test('TC 15 - Side bar menu - About', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.clickSideBarMenu()
+    await dashboardPage.selectAboutOption()
+    await dashboardPage.validateAbout()
+});
+
+test('TC 16 - Side bar menu - Logout', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.clickSideBarMenu()
+    await dashboardPage.selectLogout()
+});
+
+test('TC 17 - Side bar menu - Reset app state', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.selectItem1()
+    await dashboardPage.validateCartBadge()
+    await dashboardPage.validateRemoveButton1()
+
+    await dashboardPage.clickSideBarMenu()
+    await dashboardPage.selectReset()
+    await dashboardPage.validateCartEmpty()
+    await dashboardPage.validateAddButton1()
+});
+
+
+test('TC 18 - Sorting product (A-Z)', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
@@ -63,42 +120,84 @@ test('TC 11 - Sorting product (A-Z)', async ({ loginPage, dashboardPage }) => {
 });
 
 
-test('TC 12 - Sorting product (Z-A)', async ({ loginPage, dashboardPage }) => {
+test('TC 19 - Sorting product (Z-A)', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
     await dashboardPage.sortZA()
 });
 
-test('TC 13 - Sorting product (Low - High)', async ({ loginPage, dashboardPage }) => {
+test('TC 20 - Sorting product (Low - High)', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
     await dashboardPage.sortLohi()
 });
 
-test('TC 14 - Sorting product (High - Low)', async ({ loginPage, dashboardPage }) => {
+test('TC 21 - Sorting product (High - Low)', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
     await dashboardPage.sortHilo()
 });
 
-test('TC 15 - Show product details', async ({ loginPage, dashboardPage }) => {
+test('TC 22 - Link on footer - Twitter', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
-    await dashboardPage.validateProductDetails()
+    await dashboardPage.clickTwitter()
+    //failed, timeout
+    await dashboardPage.validateTwitter()
 });
 
-test('TC 16 - Add product to cart', async ({ loginPage, dashboardPage }) => {
+test('TC 23 - Link on footer - Facebook', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    //failed, timeout
+    await dashboardPage.clickFacebook()
+    await dashboardPage.validateFacebook()
+});
+
+test('TC 24 - Link on footer - LinkedIn', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    //failed, timeout
+    await dashboardPage.clickLinkedin()
+    await dashboardPage.clickCloseLinkedin()
+    await dashboardPage.validateLinkedin()
+});
+
+
+test('TC 25 - Show product details', async ({ loginPage, dashboardPage, inventoryPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.clickItem1()
+    await inventoryPage.validateOnPage()
+});
+
+test('TC 26 - Add product to cart', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     
     await dashboardPage.selectProduct()
 });
 
-test('TC 17 - Show shopping cart', async ({ loginPage, dashboardPage, cartPage }) => {
+test('TC 27 - Add product to cart from product details page', async ({ loginPage, dashboardPage, inventoryPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+    await dashboardPage.clickItem1()
+
+    await inventoryPage.validateOnPage()
+    await inventoryPage.clickAddToCart()
+    await inventoryPage.validetOnCart()
+    await inventoryPage.removeButtonVisible()
+});
+
+
+test('TC 28 - Show shopping cart', async ({ loginPage, dashboardPage, cartPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     
@@ -109,7 +208,7 @@ test('TC 17 - Show shopping cart', async ({ loginPage, dashboardPage, cartPage }
     await cartPage.validateItemCart()
 });
 
-test('TC 18 - Remove product on cart from home page', async ({ loginPage, dashboardPage }) => {
+test('TC 29 - Remove product on cart from home page', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     
@@ -118,7 +217,7 @@ test('TC 18 - Remove product on cart from home page', async ({ loginPage, dashbo
 });
 
 
-test('TC 19 - Remove product on cart from cart page', async ({ loginPage, dashboardPage, cartPage }) => {
+test('TC 30 - Remove product on cart from cart page', async ({ loginPage, dashboardPage, cartPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     
@@ -130,7 +229,7 @@ test('TC 19 - Remove product on cart from cart page', async ({ loginPage, dashbo
     await cartPage.removeProduct()
 });
 
-test('TC 20 - Make a successful purchase', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+test('TC 33 - Make a successful purchase', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     
@@ -147,7 +246,7 @@ test('TC 20 - Make a successful purchase', async ({ loginPage, dashboardPage, ca
     await checkoutPage.completeMessage()
 });
 
-test('TC 21 - Make a failed purchase with no product', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+test('TC 37 - Make a failed purchase with no product', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     await dashboardPage.showCart()
@@ -162,7 +261,7 @@ test('TC 21 - Make a failed purchase with no product', async ({ loginPage, dashb
     // await checkoutPage.completeMessage()
 });
 
-test('TC 22 - Make a failed purchase without filling information form', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+test('TC 38 - Make a failed purchase without filling information form', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
     

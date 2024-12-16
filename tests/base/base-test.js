@@ -3,6 +3,7 @@ const { LoginPage } = require("../page-object/login-page")
 const { DashboardPage } = require("../page-object/dashboard-page")
 const { CartPage } = require("../page-object/cart-page")
 const { CheckoutPage } = require("../page-object/checkout-page")
+const { InventoryPage } = require("../page-object/inventory-page")
 
 export const test = base.extend({
 
@@ -23,6 +24,10 @@ export const test = base.extend({
 
     checkoutPage : async ({page}, use) => {
         await use(new CheckoutPage(page))
+    },
+
+    inventoryPage : async ({page}, use) => {
+        await use(new InventoryPage(page))
     },
 
 
