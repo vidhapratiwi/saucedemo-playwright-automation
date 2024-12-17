@@ -21,12 +21,16 @@ export class CheckoutPage {
         this.totalInfoLabel = page.locator('[data-test="total-info-label"]')
         this.totalLabel = page.locator('[data-test="total-label"]')
         this.finishButton = page.locator('[data-test="finish"]')
+        this.cancelButton = page.locator('[data-test="cancel"]')
 
         this.checkoutCompleteMessage = page.locator('[data-test="checkout-complete-container"]')
         this.homeButton = page.locator('[data-test="back-to-products"]')
 
         this.errorMessage = page.locator('[data-test="error"]')
         this.errorMessageFirstName = page.locator('[data-test="checkout-info-container"] div').filter({ hasText: 'Error: First Name is required' }).nth(2)
+
+        this.yourInfoTitle = page.locator('text=Checkout: Your Information')
+
 
     }
 
@@ -54,6 +58,10 @@ export class CheckoutPage {
 
     async showErrorMessageFirstName(){
         await expect(this.errorMessageFirstName).toBeVisible()
+    }
+
+    async showErrorMessage(){
+        await expect(this.errorMessage).toBeVisible()
     }
 
     async checkout(firstname, lastname, postalcode){
@@ -90,5 +98,12 @@ export class CheckoutPage {
         await expect(this.checkoutCompleteMessage).toBeVisible()
         await this.clickHomeButton()
     }
+    
+    async clickCancelButton(){
+        await this.cancelButton.click()
+    }
 
+    async validateYourInfoPage(){
+        await expect(this.yourInfoTitle).toBeVisible()
+    }
 }

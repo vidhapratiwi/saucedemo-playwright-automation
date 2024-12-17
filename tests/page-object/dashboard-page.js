@@ -39,6 +39,7 @@ export class DashboardPage {
         this.linkedin = page.getByRole('heading', { name: 'Sauce Labs', exact: true })
 
         this.cartBadge = page.locator('[data-test="shopping-cart-badge"]')
+        
     }
 
     async validateOnPage() {

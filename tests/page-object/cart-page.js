@@ -15,6 +15,7 @@ export class CartPage {
 
         this.checkoutButton = page.locator('[data-test="checkout"]')
         this.errorMessage = page.locator('[data-test="error"]')
+        this.continueShoppingButton = page.locator('[data-test="continue-shopping"]')
     }
 
     async validateCartPage() {
@@ -43,6 +44,9 @@ export class CartPage {
     async showErrorMessage() {
         await expect(this.errorMessage).toBeVisible()
     }
-
+    
+    async clickContinueShopping(){
+        await this.continueShoppingButton.click()
+    }
 
 }

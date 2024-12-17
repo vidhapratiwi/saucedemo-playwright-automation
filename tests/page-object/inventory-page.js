@@ -28,11 +28,31 @@ export class InventoryPage {
         await this.addToCartButton.click()
     }
 
+    async clickRemoveButton(){
+        await this.removeButton.click()
+    }
+
     async validetOnCart(){
         await expect(this.cartBadge).toBeVisible()
+    }
+
+    async validateCartEmpty(){
+        await expect(this.cartBadge).toBeHidden()
     }
 
     async removeButtonVisible(){
         await expect(this.removeButton).toBeVisible()
     }
+
+    async addButtonVisible() {
+        await expect(this.addToCartButton).toBeVisible()
+    }
+
+    async addProductToCart(){
+        await this.addToCartButton.click()
+        await expect(this.cartBadge).toBeVisible()
+        await expect(this.removeButton).toBeVisible()
+    }
+
+
 }

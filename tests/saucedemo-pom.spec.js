@@ -229,6 +229,31 @@ test('TC 30 - Remove product on cart from cart page', async ({ loginPage, dashbo
     await cartPage.removeProduct()
 });
 
+test('TC 31 - Remove product on cart from product details page', async ({ loginPage, dashboardPage, inventoryPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.clickItem1()
+    await inventoryPage.validateOnPage()
+
+    await inventoryPage.addProductToCart()
+    await inventoryPage.clickRemoveButton()
+    await inventoryPage.validateCartEmpty()
+    await inventoryPage.addButtonVisible()
+});
+
+test('TC 32 - Continue button work properly', async ({ loginPage, dashboardPage, cartPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+    
+    await dashboardPage.selectProduct()
+    await dashboardPage.showCart()
+
+    await cartPage.validateCartPage()
+    await cartPage.clickContinueShopping()
+    await dashboardPage.validateOnPage()
+});
+
 test('TC 33 - Make a successful purchase', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
@@ -245,6 +270,55 @@ test('TC 33 - Make a successful purchase', async ({ loginPage, dashboardPage, ca
     await checkoutPage.overview()
     await checkoutPage.completeMessage()
 });
+
+test('TC 34 - Make a failed purchase - invalid first name format', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+    
+    await dashboardPage.selectProduct()
+    await dashboardPage.showCart()
+
+    await cartPage.validateCartPage()
+    await cartPage.validateItemCart()
+    await cartPage.continueCheckout()
+
+    await checkoutPage.validateCheckoutPage()
+    await checkoutPage.checkout(process.env.INVALID, process.env.LAST_NAME, process.env.POSTAL_CODE)
+    await checkoutPage.showErrorMessage()
+});
+
+test('TC 35 - Make a failed purchase - invalid last name format', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+    
+    await dashboardPage.selectProduct()
+    await dashboardPage.showCart()
+
+    await cartPage.validateCartPage()
+    await cartPage.validateItemCart()
+    await cartPage.continueCheckout()
+
+    await checkoutPage.validateCheckoutPage()
+    await checkoutPage.checkout(process.env.FIRST_NAME, process.env.INVALID, process.env.POSTAL_CODE)
+    await checkoutPage.showErrorMessage()
+});
+
+test('TC 36 - Make a failed purchase - invalid zip / postal code format', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+    
+    await dashboardPage.selectProduct()
+    await dashboardPage.showCart()
+
+    await cartPage.validateCartPage()
+    await cartPage.validateItemCart()
+    await cartPage.continueCheckout()
+
+    await checkoutPage.validateCheckoutPage()
+    await checkoutPage.checkout(process.env.FIRST_NAME, process.env.LAST_NAME, process.env.INVALID)
+    await checkoutPage.showErrorMessage()
+});
+
 
 test('TC 37 - Make a failed purchase with no product', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
@@ -277,6 +351,42 @@ test('TC 38 - Make a failed purchase without filling information form', async ({
     await checkoutPage.showErrorMessageFirstName()
     
 });
+
+test('TC 39 - Cancel button work properly - Checkout: Your Information page', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+    
+    await dashboardPage.selectProduct()
+    await dashboardPage.showCart()
+
+    await cartPage.validateCartPage()
+    await cartPage.validateItemCart()
+    await cartPage.continueCheckout()
+
+    await checkoutPage.validateCheckoutPage()
+    await checkoutPage.clickCancelButton()
+    await cartPage.validateCartPage()
+});
+
+test('TC 40 - Cancel button work properly - Checkout: Overview page', async ({ loginPage, dashboardPage, cartPage, checkoutPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+    
+    await dashboardPage.selectProduct()
+    await dashboardPage.showCart()
+
+    await cartPage.validateCartPage()
+    await cartPage.validateItemCart()
+    await cartPage.continueCheckout()
+
+    await checkoutPage.validateCheckoutPage()
+    await checkoutPage.checkout(process.env.FIRST_NAME, process.env.LAST_NAME, process.env.POSTAL_CODE)
+    await checkoutPage.validateOverview()
+    await checkoutPage.clickCancelButton()
+    await checkoutPage.validateYourInfoPage()
+});
+
+
 
 
 test.beforeAll(async () => {
