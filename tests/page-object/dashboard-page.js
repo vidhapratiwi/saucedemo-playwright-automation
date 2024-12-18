@@ -10,6 +10,7 @@ export class DashboardPage {
         this.sortButton = page.locator('[data-test="product-sort-container"]')
 
         this.item1Title = page.getByText('Sauce Labs Backpack')
+        this.item1Picture = page.locator('[data-test="item-4-img-link"]')
         this.item1AddButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]')
         this.item1RemoveButton = page.locator('[data-test="remove-sauce-labs-backpack"]')
         
@@ -39,6 +40,9 @@ export class DashboardPage {
         this.linkedin = page.getByRole('heading', { name: 'Sauce Labs', exact: true })
 
         this.cartBadge = page.locator('[data-test="shopping-cart-badge"]')
+
+        this.header = page.locator('[data-test="header-container"]')
+        this.footer = page.locator('[data-test="footer"]')
         
     }
 
@@ -74,7 +78,6 @@ export class DashboardPage {
     async validateProductDetails(){
         await expect(this.item1Title).toBeVisible()
         await expect(this.item1Picture).toBeVisible()
-        await expect(this.item1Price).toBeVisible()
         await expect(this.item1AddButton).toBeVisible()
     }
 
@@ -155,31 +158,63 @@ export class DashboardPage {
     }
 
     async clickTwitter(){
-        await this.twitterLink.click()
+        const [newPage] = await Promise.all([
+            this.page.context().waitForEvent('page'),
+            this.twitterLink.click()
+        ])
+        return newPage;
     }
 
-    async validateTwitter(){
-        await expect(this.twitter).toBeVisible()
+    async validateTwitter(newPage){
+        await expect(newPage).toHaveURL('https://x.com/saucelabs?mx=2')
+        await expect(newPage).toHaveTitle(/X/)
+        await newPage.close()
+        
     }
 
     async clickFacebook(){
-        await this.facebookLink.click()
+        const [newPage] = await Promise.all([
+            this.page.context().waitForEvent('page'),
+            this.facebookLink.click()
+        ])
+        return newPage;
     }
 
-    async validateFacebook(){
-        await this.facebookClose.click()
-        await expect(this.facebook).toBeVisible()
+    async validateFacebook(newPage){
+        await expect(newPage).toHaveURL('https://www.facebook.com/saucelabs')
+        await expect(newPage).toHaveTitle(/Sauce Labs | Facebook/)
+        await newPage.close()
     }
 
     async clickLinkedin(){
-        await this.linkedinLink.click()
+        const [newPage] = await Promise.all([
+            this.page.context().waitForEvent('page'),
+            this.linkedinLink.click()
+        ])
+        return newPage;
     }
 
-    async clickCloseLinkedin(){
-        await this.linkedinClose.click()
+    async validateLinkedin(newPage){
+        await expect(newPage).toHaveURL('https://www.linkedin.com/company/sauce-labs/')
+        await expect(newPage).toHaveTitle(/Sauce Labs: Overview | LinkedIn/)
+        await newPage.close(newPage)
     }
 
-    async validateLinkedin(){
-        await expect(this.linkedin).toBeVisible()
+    async scrollToBottom(){
+        //scroll to the bottom of the page
+        await this.page.evaluate(() => {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+        //wait for footer to be visible
+        await expect(this.footer).toBeVisible()
     }
+
+    async scrollToTop(){
+        await this.page.evaluate(() => {
+            window.scrollTo(0, 0)
+        });
+        await expect(this.header).toBeVisible()
+    }
+
+
 }

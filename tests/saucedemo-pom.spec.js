@@ -63,6 +63,15 @@ test('TC 11 - Successful Logout', async ({ loginPage, dashboardPage }) => {
     await dashboardPage.logout()
 });
 
+test('TC 12 - Scroll to bottom and back to top of the page', async ({ loginPage, dashboardPage }) => {
+    await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
+    await dashboardPage.validateOnPage()
+
+    await dashboardPage.scrollToBottom()
+    await dashboardPage.scrollToTop()
+});
+
+
 test('TC 13 - Display all side bar menu', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
@@ -145,28 +154,24 @@ test('TC 22 - Link on footer - Twitter', async ({ loginPage, dashboardPage }) =>
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
-    await dashboardPage.clickTwitter()
-    //failed, timeout
-    await dashboardPage.validateTwitter()
+    const newPage = await dashboardPage.clickTwitter()
+    await dashboardPage.validateTwitter(newPage)
 });
 
 test('TC 23 - Link on footer - Facebook', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
-    //failed, timeout
-    await dashboardPage.clickFacebook()
-    await dashboardPage.validateFacebook()
+    const newPage = await dashboardPage.clickFacebook()
+    await dashboardPage.validateFacebook(newPage)
 });
 
 test('TC 24 - Link on footer - LinkedIn', async ({ loginPage, dashboardPage }) => {
     await loginPage.login(process.env.STANDARD_USER, process.env.PASSWORD)
     await dashboardPage.validateOnPage()
 
-    //failed, timeout
-    await dashboardPage.clickLinkedin()
-    await dashboardPage.clickCloseLinkedin()
-    await dashboardPage.validateLinkedin()
+    const newPage = await dashboardPage.clickLinkedin()
+    await dashboardPage.validateLinkedin(newPage)
 });
 
 
